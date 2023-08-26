@@ -1,5 +1,4 @@
 # CulinaryNourish
-<<<<<<< HEAD
 
 Aplikasi yang memberikan referensi menu masakan.
 
@@ -19,5 +18,3 @@ Aplikasi yang memberikan referensi menu masakan.
 - Frontend : React
 - Backend : Express
 - Basis Data : MariaDB
-=======
->>>>>>> f43e915bb174099d96f176136e1d5a2d6929b6e8
