@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom"
+import Galery from "./Galery";
 
 export default function Home(){
     return(
         <div>
-            <Link to="/recipe">
-            <button>tampilkan recipe</button></Link>
+            <h1>Home</h1>
+            <Galery/>
         </div>
     )
 }

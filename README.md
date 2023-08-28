@@ -1,20 +1,17 @@
 # CulinaryNourish
 
-Aplikasi yang memberikan referensi menu masakan.
+Aplikasi yang memberikan referensi menu makanan.
 
 ## Fitur
 
-- Kelola Resep
-- Kelola Kategori
-- Kelola Sub Kategori
-- Kelola Bahan
+- Kelola Resep(galery)
 - Kelola User
 
 
 ## Diagram ER
-![Diagram ER Culinary Nourish](ERD-CulinaryNourish.svg)
+![Diagram ER Culinary Nourish](ERD.svg)
 
 ## Tech Stack
-- Frontend : React
-- Backend : Express
+- Frontend : React, Express
+- Backend :Node.js
 - Basis Data : MariaDB

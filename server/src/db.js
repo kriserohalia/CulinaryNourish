@@ -9,6 +9,6 @@ const pool = mariadb.createPool({
 });
 
 const conn = await pool.getConnection();
-console.log("Terhubung ke database");
+console.log(`Terhubung ke database (${process.env.DB_NAME}).`);
 
 export default conn;

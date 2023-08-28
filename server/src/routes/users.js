@@ -3,7 +3,7 @@ import conn from "../db.js";
 import bcrypt from "bcryptjs";
 
 const prepare = await conn.prepare (
-    "INSERT INTO users (name,email,password) VALUES (?,?,?)"
+    "INSERT INTO users (name,email,password,is_admin) VALUES (?,?,?,?)"
 );
 
 const salt = await bcrypt.genSalt(10);
