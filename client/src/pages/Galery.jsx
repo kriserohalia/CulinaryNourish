@@ -39,17 +39,17 @@ export default function Galery(){
     return(
         <>
         <main>
-        <div className="container flex gap-4 ml-2 mt-3 w-full sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mb-4 p-2 rounded border mt-1 mx-auto p-3">
-        <BsSearch size={32}/>
-       <input
+    <div className="flex items-center gap-4 ml-auto mr-2 p-3 rounded border ">
+        <BsSearch size={32} className="text-black" />
+        <input
             type="text"
             placeholder="cari nama resep..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mb-4 p-2 rounded border mx-auto flex justify-center  focus:border-gray-500 focus:outline-none"
+            className="w-full p-2 rounded-full border bg-transparent text-black focus:border-gray-500 focus:outline-none placeholder-gray-300 "
         />
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    </div>
+ <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {searchResults.map((galery) => (
                     <div key={galery.id} className="bg-white rounded-lg shadow-md p-4">
                         <h1 className="text-xl font-semibold mb-2">{galery.title}</h1>
@@ -63,7 +63,7 @@ export default function Galery(){
                 ))}
             {galeries.map((galery)=> (
                 <div key={galery.id} className="bg-white rounded-lg shadow-md p-4">
-                     <span className="flex flex-end"><Link to={`/${galery.id}/edit`}><BiEdit size={24} /></Link>
+                     <span className="flex justify-between p-3"><Link to={`/${galery.id}/edit`}><BiEdit size={32}/></Link>
                      <button onClick={async () => {
                 if (
                   confirm(`Apakah Anda yakin ingin menghapus ${galery.title}?`)
@@ -75,13 +75,15 @@ export default function Galery(){
                   setGaleries(galeries);
                   alert(message);
                 }
-              }}><AiOutlineDelete size={24} />
+              }}><AiOutlineDelete size={32}/>
             </button></span>
                     <h1 className="text-xl font-semibold mb-2 flex justify-center" >{galery.title}</h1>
                     <img src={galery.image} alt="photo resep"  className="w-full h-auto rounded-lg mb-2"/>
+                    <div className="flex justify-center ">
                     <Link to={`/galery/${galery.id}`}>
-                        <button className="bg-green-400 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded grid justify-center">Lihat Detail</button>
+                        <button className="bg-green-400 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded flex items-center justify-center w-full">Lihat Detail</button>
                     </Link>
+                    </div>
                 </div>
             ))}
 

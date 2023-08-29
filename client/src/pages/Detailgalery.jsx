@@ -43,7 +43,7 @@ export default function Detailgalery() {
                             <li key={index} className="text-gray-700 bg-pink-100 p-3 rounded mt-3 ">{step.instruction}</li>
                         ))}
                     </ol>
-                    <p className="text-gray-700 mt-4 font-bold bg-green-300 p-3 rounded"><span className="text-2xl m-2">Fakta Gizi:</span>{galeri.nutrition_fact}</p>
+                    <p className="text-gray-700 mt-4 font-bold bg-green-300 p-3 rounded"><span className="text-2xl m-2">Nutrition Fact:</span>{galeri.nutrition_fact}</p>
                 </div>
             ) : (
                 <p>Loading....</p>

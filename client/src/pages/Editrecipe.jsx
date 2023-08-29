@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom";
 import {api} from "../utils.js"
+import {BiSolidEdit} from "react-icons/bi"
 
 
 export default function EditRecipe(){
@@ -9,12 +10,16 @@ export default function EditRecipe(){
      const navigate= useNavigate();
 
      useEffect(()=> {
-        api.get(`/galery/${id}`).then((response)=>response.json()).then((galery)=> setGalery(galery));
+        api.get(`/galery/${id}`)
+        .then((response)=>response.json())
+        .then((galery)=> setGalery(galery));
      },[id]);
-     
+
+     console.log(galery);
     return(
         <main>
             {galery ? (
+                <div className="container max-w-md mx-auto m-10 bg-gray-300 p-3 rounded w-full" > 
                 <form 
                 onSubmit={async (e) => {
                     e.preventDefault();
@@ -22,10 +27,11 @@ export default function EditRecipe(){
                     alert(message);
                     navigate("/");
                 }}>
-                    <h1>Edit Recipe</h1>
+                    <span className=" flex items-center">
+                    <h1 className="text-2xl font-semibold mb-4 mt-10" ><BiSolidEdit size={36}/>Edit Recipe</h1></span>
                     <label className="block">
                     Title:
-                    <input
+                    <input 
                         type="text"
                         value={galery.title}
                         onChange={(e) => setGalery({...galery,title  : e.target.value})}
@@ -55,7 +61,7 @@ export default function EditRecipe(){
                         className="w-full p-2 border rounded"
                     />
                 </label>
-
+                <div className="container flex gap-2 ">
                 <label className="block">
                     Prep time:
                     <input
@@ -88,9 +94,10 @@ export default function EditRecipe(){
                         className="w-full p-2 border rounded"
                     />
                 </label>
+                </div>
 
                 <label className="block">
-                    INgredients:
+                    Igredients:
                     <input
                         type="text"
                         value={galery.ingredients}
@@ -104,8 +111,8 @@ export default function EditRecipe(){
                     Intruction:
                     <input
                         type="text"
-                        value={galery.introduction}
-                        onChange={(e) => setGalery({...galery,introduction : e.target.value})}
+                        value={galery.intruction}
+                        onChange={(e) => setGalery({...galery,intruction : e.target.value})}
                         required
                         className="w-full p-2 border rounded"
                     />
@@ -121,13 +128,25 @@ export default function EditRecipe(){
                         className="w-full p-2 border rounded"
                     />
                 </label>
-
                 <button
-                    className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+                    className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded flex mt-4"
+                    onClick={async () => {
+                        if (
+                            window.confirm(`Apakah data resep sudah benar?`)
+                        ) {
+                            const response = await api.put(`/galery/${galery.id}`, galery);
+                            const message = await response.text();
+                            alert(message);
+                        }
+                    }}
                 >
                     Save
                 </button>
+                
+
+
             </form>
+            </div>
 
             ): (
                 "Loading..."

@@ -87,47 +87,42 @@ export default function AddRecipe() {
 
                 <label className="block">
                     ingredients:
-                    <input
-    type="text"
-    value={newRecipe.ingredients ? newRecipe.ingredients.map(ing => `${ing.n} - ${ing.c}`).join(', ') : ""}
-    onChange={(e) => {
-        const inputValue = e.target.value;
-        // Split input value into array of ingredients
-        const ingredientArray = inputValue.split(',').map(item => {
-            const [n, c] = item.split('-').map(part => part.trim());
-            return { n, c };
-        });
-        // Update newRecipe state with the parsed ingredientArray
-        setNewRecipe({ ...newRecipe, ingredients: ingredientArray });
-    }}
-    required
-    className="w-full p-2 border rounded"
-/>
+                <input
+                type="text"
+                value={newRecipe.ingredients ? newRecipe.ingredients.map(ing => `${ing.n} - ${ing.c}`).join(', ') : ""}
+                onChange={(e) => {
+                    const inputValue = e.target.value;
+                    const ingredientArray = inputValue.split(',').map(item => {
+                        const [n, c] = item.split('-').map(part => part.trim());
+                        return { n, c };
+                    });
+                    setNewRecipe({ ...newRecipe, ingredients: ingredientArray });
+                }}
+                required
+                className="w-full p-2 border rounded"
+            />
 
                 </label>
-
                 <label className="block">
                     Intruction:
-                    <input
-    type="text"
-    value={newRecipe.instruction ? newRecipe.instruction.map(step => `${step.step}: ${step.instruction}`).join(', ') : ""}
-    onChange={(e) => {
-        const inputValue = e.target.value;
-        // Split input value into array of instructions
-        const instructionArray = inputValue.split(',').map(item => {
-            const [stepStr, instruction] = item.split(':').map(part => part.trim());
-            const step = parseInt(stepStr);
-            return { step, instruction };
-        });
-        // Update newRecipe state with the parsed instructionArray
-        setNewRecipe({ ...newRecipe, instruction: instructionArray });
-    }}
-    required
-    className="w-full p-2 border rounded"
-/>
+            < input
+                type="text"
+                value={newRecipe.instruction ? newRecipe.instruction.map(step => `${step.step}: ${step.instruction}`).join(', ') : ""}
+                onChange={(e) => {
+                    const inputValue = e.target.value;
+                    const instructionArray = inputValue.split(',').map(item => {
+                        const [stepStr, instruction] = item.split(':').map(part => part.trim());
+                        const step = parseInt(stepStr);
+                        return { step, instruction };
+                    });
+                    setNewRecipe({ ...newRecipe, instruction: instructionArray });
+                }}
+                required
+                className="w-full p-2 border rounded"
+            />
 
                 </label>
-
+        
                 <label className="block">
                     Nutrition_fact:
                     <input
@@ -138,7 +133,6 @@ export default function AddRecipe() {
                         className="w-full p-2 border rounded"
                     />
                 </label>
-
                 <button
                     type="submit"
                     className="bg-red-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded"

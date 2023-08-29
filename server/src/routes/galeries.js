@@ -41,21 +41,22 @@ router.post("/",async (req,res) => {
 });
 
 //edit
-router.put(":/id",async(req,res)=> {
+router.put("/:id",async(req,res)=> {
     try {
         const prepare = await conn.prepare(
-            "UPDATE galeries SET title= ?, image=?,description=?, prep_time=?, cook_time=?, servings=? , ingredients=?, intruction=?, nutrition_fact=? "
+            "UPDATE galeries SET title= ?, image=?, description=?, prep_time=?, cook_time=?, servings=?, ingredients=?, intruction=?, nutrition_fact=? WHERE id=?"
         );
         await prepare.execute ([
             req.body.title,
             req.body.image,
             req.body.description,
-            req.body.pre_time,
-            req.body.cooking_time,
+            req.body.prep_time,
+            req.body.cook_time,
             req.body.servings,
             req.body.ingredients,
             req.body.intruction,
             req.body.nutrition_fact,
+            req.params.id
         ]);
         res.send("Galery berhasil disimpan");
     } catch (error) {
