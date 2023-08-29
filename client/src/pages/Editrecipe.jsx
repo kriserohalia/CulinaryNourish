@@ -9,6 +9,7 @@ export default function EditRecipe(){
      const{id}= useParams();
      const navigate= useNavigate();
 
+
      useEffect(()=> {
         api.get(`/galery/${id}`)
         .then((response)=>response.json())
@@ -137,6 +138,7 @@ export default function EditRecipe(){
                             const response = await api.put(`/galery/${galery.id}`, galery);
                             const message = await response.text();
                             alert(message);
+                         
                         }
                     }}
                 >

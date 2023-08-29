@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "61d3c80c-c770-486b-a26e-391e05914bbe",
+		"name": "CulinaryNourish",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29230095"
+	},
+	"item": [
+		{
+			"name": "GALERY",
+			"item": [
+				{
+					"name": "galery-post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"title\": \"Air Fryer Waffle Egg in a Hole\",\r\n        \"image\": \"https://www.allrecipes.com/thmb/FolozY9OnviGa7gMGODnD1c1bL0=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/air-fryer-waffle-egg-in-hole-4x3-d5a10b3cda4e4ddda68481790e098da1.jpeg\",\r\n        \"description\": \"Classic egg in a hole is made inside a waffle for a sweet, buttery flavor and added crunch\",\r\n        \"prep_time\":\"2 mins\",\r\n        \"cook_time\":\"8 mins\",\r\n        \"servings\":\"1 serving\",\r\n        \"ingredients\": \"1 frozen waffle,1 large egg,salt and pepper to taste,2 tablespoons shredded cheese,maple syrup to taste \",\r\n        \"intruction\": \"(1)Preheat the air fryer to 350 degrees F (175 degrees C).(2)Cut a hole in the center of the frozen waffle using the rim of a cup or glass (about 2 to 3 inches in diameter). Move waffle to a square of parchment paper, then carefully place the parchment paper into the preheated air fryer, along with the small center waffle.(3)Crack egg directly into the center of waffle hole; season with salt and pepper to taste. Close the lid and cook until the white of the egg has started to set, about 5 to 6 minutes.(4)Remove small center waffle from the air fryer. Sprinkle shredded cheese onto egg waffle, and cook until the cheese is melted and egg white is completely set, about 1 to 2 minutes. (5)Transfer egg waffle onto a plate; drizzle with maple syrup and serve immediately\",\r\n        \"nutrition_fact\": \"444 Calories, 24g Fat, 39g Carbs, 18g Protein\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/galeries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"galeries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "galery-get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/galery",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"galery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "galery-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/galery/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"galery",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "galery-update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/galery",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"galery"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "user-login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"name\":\"a\",\r\n    \"email\":\"a@gmail.com\",\r\n    \"password\":\"a\"\r\n    // \"is_admin\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-logout",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

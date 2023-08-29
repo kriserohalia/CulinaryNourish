@@ -6,9 +6,9 @@ import "dotenv/config";
 // import ingredientsRouter from "./routes/ingredients.js";
 // import subCategoryRouter from "./routes/subcategories.js"
 import galeryRouter from "./routes/galeries.js"
-// import cookieParser from "cookie-parser";
+import cookieParser from "cookie-parser";
 // import authMiddleware from "./middlewares/auth.js";
-// import authRouter from "./routes/auth.js";
+import authRouter from "./routes/auth.js";
 
 
 export  const app = express()
@@ -16,12 +16,11 @@ app.use(cors({
     origin : "http://localhost:5173",methods:"GET,HEAD,PUT,POST,DELETE",credentials:true,}
 ));
 app.use(express.json());
-// app.use(cookieParser());
+app.use(cookieParser());
 
 const router = express.Router();
 
-app.use("/api",router);
-// router.use("/auth",authRouter);
+router.use("/auth",authRouter);
 // router.use(authMiddleware);
 
 // router.use("/category",categoriesRouter);
@@ -30,5 +29,6 @@ app.use("/api",router);
 // router.use("/subcategory",subCategoryRouter);
 router.use("/galery",galeryRouter);
 
+app.use("/api",router);
 const port = 3000;
 app.listen(port, ()=> console.log(`server berjalan di di http://localhost:${port}.`));
